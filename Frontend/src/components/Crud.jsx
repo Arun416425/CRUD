@@ -41,10 +41,7 @@ const Crud = () => {
     };
 
     const handleDelete = (id) => {
-        const confirmDelete = confirm("Are you sure want to delete ?");
-        if (!confirmDelete) {
-            return
-        }
+        toast.info("Click delete again to confirm", { autoClose: 2000 });
 
         axios.delete(`https://crud-4-l16m.onrender.com/api/delete/${id}/`)
             .then(() => {
@@ -62,6 +59,11 @@ const Crud = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
+        if (!formData.name || formData.age || formData.course || formData.city) {
+            toast.error("All fields are required")
+            return;
+        }
+
         if (editId) {
             axios.put(`https://crud-4-l16m.onrender.com/api/update/${editId}/`, formData)
                 .then((response) => {
@@ -76,7 +78,7 @@ const Crud = () => {
                 })
                 .catch((error) => {
                     console.log("Error", error);
-                    toast.error("Failed to update student")
+                    toast.error("Failed to update student");
                 });
         } else {
             axios.post(`https://crud-4-l16m.onrender.com/api/add/`, formData)
@@ -118,7 +120,7 @@ const Crud = () => {
                     </button>
                 </form>
                 <div className="mt-8 flex justify-center overflow-x-auto">
-                    <table className="min-w-full bg-white shadow-lg rounded-lg overflow-hidden">
+                    <table className="min-w-full sm:table-auto md:table-fixed bg-white shadow-lg rounded-lg overflow-hidden">
 
                         <thead className="bg-gray-800 text-white">
                             <tr>
