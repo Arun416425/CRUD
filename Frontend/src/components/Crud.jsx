@@ -13,7 +13,7 @@ const Crud = () => {
     });
     const [editId, setEditId] = useState(null);
 
-    const handleValue = () => {
+    const resetForm = () => {
         setFormData({
             name: "",
             age: "",
@@ -41,7 +41,8 @@ const Crud = () => {
     };
 
     const handleDelete = (id) => {
-        toast.info("Click delete again to confirm", { autoClose: 2000 });
+        const confirmed = window.confirm("Are you sure you want to delete?");
+        if (!confirmed) return;
 
         axios.delete(`https://crud-4-l16m.onrender.com/api/delete/${id}/`)
             .then(() => {
@@ -59,7 +60,7 @@ const Crud = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        if (!formData.name || formData.age || formData.course || formData.city) {
+        if (!formData.name || !formData.age || !formData.course || !formData.city) {
             toast.error("All fields are required")
             return;
         }
@@ -74,7 +75,7 @@ const Crud = () => {
                     setEditId(null);
                     toast.success("Student Updated");
 
-                    handleValue();
+                    resetForm();
                 })
                 .catch((error) => {
                     console.log("Error", error);
@@ -90,7 +91,7 @@ const Crud = () => {
                     console.error("error", error);
                     toast.error("Failed to add student.");
                 });
-            handleValue();
+            resetForm();
 
         }
     }
