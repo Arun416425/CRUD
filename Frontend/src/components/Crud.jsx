@@ -99,7 +99,7 @@ const Crud = () => {
                         {editId ? "Update" : "Save"}
                     </button>
                 </form>
-                <div className="mt-8 flex justify-center">
+                <div className="mt-8 flex justify-center overflow-x-auto">
                     <table className="min-w-175 bg-white shadow-lg rounded-lg overflow-hidden">
 
                         <thead className="bg-gray-800 text-white">
