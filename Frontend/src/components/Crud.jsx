@@ -13,6 +13,15 @@ const Crud = () => {
     });
     const [editId, setEditId] = useState(null);
 
+    const handleValue = () => {
+        setFormData({
+            name: "",
+            age: "",
+            course: "",
+            city: ""
+        });
+    };
+
     const handleChange = (e) => {
         setFormData({
             ...formData,
@@ -63,12 +72,7 @@ const Crud = () => {
                     setEditId(null);
                     toast.success("Student Updated");
 
-                    setFormData({
-                        name: "",
-                        age: "",
-                        course: "",
-                        city: ""
-                    })
+                    handleValue();
                 })
                 .catch((error) => {
                     console.log("Error", error);
@@ -77,20 +81,15 @@ const Crud = () => {
         } else {
             axios.post(`https://crud-4-l16m.onrender.com/api/add/`, formData)
                 .then((response) => {
-                    alert('Student added successfully')
-                    setPosts([...posts, response.data])
+                    setPosts([...posts, response.data]);
                     toast.success("Student added successfully!");
                 })
                 .catch((error) => {
                     console.error("error", error);
                     toast.error("Failed to add student.");
                 });
-            setFormData({
-                name: "",
-                age: "",
-                course: "",
-                city: ""
-            })
+            handleValue();
+
         }
     }
 
@@ -102,7 +101,6 @@ const Crud = () => {
             .catch((error) => {
                 console.error("Error", error);
                 toast.error("Failed to fetch students");
-
             });
     }, [])
 
