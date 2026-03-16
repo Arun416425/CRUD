@@ -36,6 +36,7 @@ const Crud = () => {
                 setPosts(filteredPost)
             })
             .catch((error) => console.log("Error", error))
+            confirm("Are you sure want to delete ?")
     }
 
     const handleSubmit = (e) => {
@@ -100,7 +101,7 @@ const Crud = () => {
                     </button>
                 </form>
                 <div className="mt-8 flex justify-center overflow-x-auto">
-                    <table className="min-w-175 bg-white shadow-lg rounded-lg overflow-hidden">
+                    <table className="min-w-full bg-white shadow-lg rounded-lg overflow-hidden">
 
                         <thead className="bg-gray-800 text-white">
                             <tr>
