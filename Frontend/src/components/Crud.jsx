@@ -115,55 +115,55 @@ const Crud = () => {
                     <input type="number" name='age' placeholder='Age' value={formData.age} onChange={handleChange} className='border p-2 w-75 m-1' /><br />
                     <input type="text" name='course' placeholder='Course' value={formData.course} onChange={handleChange} className='border p-2 w-75 m-1' /><br />
                     <input type="text" name='city' placeholder='City' value={formData.city} onChange={handleChange} className='border p-2 w-75 m-1' /><br />
-                    <button type="submit" className='bg-green-400 text-white px-6 py-2 rounded w-75 cursor-pointer hover:bg-green-500 active:bg-green-600' required />
-                    {editId ? "Update" : "Save"}
-                </button>
-            </form>
-            <div className="mt-8 flex justify-center overflow-x-auto">
-                <table className="min-w-full md:table-fixed bg-white shadow-lg rounded-lg overflow-hidden">
+                    <button type="submit" className='bg-green-400 text-white px-6 py-2 rounded w-75 cursor-pointer hover:bg-green-500 active:bg-green-600'>
+                        {editId ? "Update" : "Save"}
+                    </button>
+                </form>
+                <div className="mt-8 flex justify-center overflow-x-auto">
+                    <table className="min-w-full md:table-fixed bg-white shadow-lg rounded-lg overflow-hidden">
 
-                    <thead className="bg-gray-800 text-white">
-                        <tr>
-                            <th className="py-3 px-4 text-center">Name</th>
-                            <th className="py-3 px-4 text-center">Age</th>
-                            <th className="py-3 px-4 text-center">Course</th>
-                            <th className="py-3 px-4 text-center">City</th>
-                            <th className="py-3 px-4 text-center">Actions</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        {posts.map((post) => (
-                            <tr key={post.id} className="border-b hover:bg-gray-100">
-
-                                <td className="py-3 px-4">{post.name}</td>
-                                <td className="py-3 px-4">{post.age}</td>
-                                <td className="py-3 px-4">{post.course}</td>
-                                <td className="py-3 px-4">{post.city}</td>
-
-                                <td className="py-3 px-4 text-center space-x-2">
-                                    <button
-                                        className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded transition cursor-pointer"
-                                        onClick={() => handleEdit(post)}
-                                    >
-                                        Edit
-                                    </button>
-
-                                    <button
-                                        className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded transition cursor-pointer"
-                                        onClick={() => handleDelete(post.id)}
-                                    >
-                                        Delete
-                                    </button>
-                                </td>
-
+                        <thead className="bg-gray-800 text-white">
+                            <tr>
+                                <th className="py-3 px-4 text-center">Name</th>
+                                <th className="py-3 px-4 text-center">Age</th>
+                                <th className="py-3 px-4 text-center">Course</th>
+                                <th className="py-3 px-4 text-center">City</th>
+                                <th className="py-3 px-4 text-center">Actions</th>
                             </tr>
-                        ))}
-                    </tbody>
+                        </thead>
 
-                </table>
-            </div>
-        </div >
+                        <tbody>
+                            {posts.map((post) => (
+                                <tr key={post.id} className="border-b hover:bg-gray-100">
+
+                                    <td className="py-3 px-4">{post.name}</td>
+                                    <td className="py-3 px-4">{post.age}</td>
+                                    <td className="py-3 px-4">{post.course}</td>
+                                    <td className="py-3 px-4">{post.city}</td>
+
+                                    <td className="py-3 px-4 text-center space-x-2">
+                                        <button
+                                            className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded transition cursor-pointer"
+                                            onClick={() => handleEdit(post)}
+                                        >
+                                            Edit
+                                        </button>
+
+                                        <button
+                                            className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded transition cursor-pointer"
+                                            onClick={() => handleDelete(post.id)}
+                                        >
+                                            Delete
+                                        </button>
+                                    </td>
+
+                                </tr>
+                            ))}
+                        </tbody>
+
+                    </table>
+                </div>
+            </div >
             <ToastContainer
                 position="top-right"
                 autoClose={3000}
