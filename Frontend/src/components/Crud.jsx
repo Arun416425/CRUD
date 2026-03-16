@@ -30,7 +30,7 @@ const Crud = () => {
     };
 
     const handleDelete = (id) => {
-        axios.delete(`https://crud-4-l16m.onrender.com//api/delete/${id}/`)
+        axios.delete(`https://crud-4-l16m.onrender.com/api/delete/${id}/`)
             .then(() => {
                 const filteredPost = posts.filter(post => post.id !== id)
                 setPosts(filteredPost)
@@ -42,7 +42,7 @@ const Crud = () => {
         e.preventDefault()
 
         if (editId) {
-            axios.put(`https://crud-4-l16m.onrender.com//api/update/${editId}/`, formData)
+            axios.put(`https://crud-4-l16m.onrender.com/api/update/${editId}/`, formData)
                 .then((response) => {
                     const updatedData = posts.map((post) =>
                         post.id === editId ? response.data : post)
@@ -59,7 +59,7 @@ const Crud = () => {
                 })
                 .catch((error) => console.log("Error", error))
         } else {
-            axios.post(`https://crud-4-l16m.onrender.com//api/add/`, formData)
+            axios.post(`https://crud-4-l16m.onrender.com/api/add/`, formData)
                 .then((response) => {
                     alert('Student added successfully')
                     setPosts([...posts, response.data])
@@ -77,7 +77,7 @@ const Crud = () => {
     }
 
     useEffect(() => {
-        axios.get(`https://crud-4-l16m.onrender.com//api/`)
+        axios.get(`https://crud-4-l16m.onrender.com/api/`)
             .then((response) => {
                 setPosts(response.data)
             })
