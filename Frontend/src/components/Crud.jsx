@@ -30,13 +30,18 @@ const Crud = () => {
     };
 
     const handleDelete = (id) => {
+        const confirmDelete = confirm("Are you sure want to delete ?")
+        if (!confirmDelete) {
+            return
+        }
+
         axios.delete(`https://crud-4-l16m.onrender.com/api/delete/${id}/`)
             .then(() => {
                 const filteredPost = posts.filter(post => post.id !== id)
                 setPosts(filteredPost)
             })
             .catch((error) => console.log("Error", error))
-            confirm("Are you sure want to delete ?")
+            
     }
 
     const handleSubmit = (e) => {
