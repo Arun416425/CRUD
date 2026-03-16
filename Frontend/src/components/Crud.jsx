@@ -120,7 +120,7 @@ const Crud = () => {
                     </button>
                 </form>
                 <div className="mt-8 flex justify-center overflow-x-auto">
-                    <table className="min-w-full sm:overflow-x-auto md:table-fixed bg-white shadow-lg rounded-lg overflow-hidden">
+                    <table className="min-w-full md:table-fixed bg-white shadow-lg rounded-lg overflow-hidden">
 
                         <thead className="bg-gray-800 text-white">
                             <tr>
