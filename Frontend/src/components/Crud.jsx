@@ -13,7 +13,7 @@ const Crud = () => {
     });
     const [editId, setEditId] = useState(null);
 
-    const BASE_URL = 'https://crud-4-l16m.onrender.com/api/'
+    const BASE_URL = 'https://crud-4-l16m.onrender.com/api'
 
     const resetForm = () => {
         setFormData({
@@ -94,7 +94,7 @@ const Crud = () => {
         } catch (err) {
             toast.error("Operation failed");
         }
-    }
+    };
 
     useEffect(() => {
         axios.get(`${BASE_URL}`)
