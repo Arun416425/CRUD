@@ -119,7 +119,7 @@ const Crud = () => {
                 <h2 className='text-4xl m-4'>Student List</h2>
                 <form onSubmit={handleSubmit}>
                     <input type="text" name='name' placeholder='Name' value={formData.name} onChange={handleChange} className='border p-2 w-75 m-1' /><br />
-                    <input type="number" name='age' placeholder='Age' value={formData.age} onChange={handleChange} onKeyDown={(e) => { if (e.key === 'E' || e.key === 'e' || e.key === '+' || e.key === '-') { e.preventDefault(;)}}} className='border p-2 w-75 m-1' /><br />
+                    <input type="number" name='age' placeholder='Age' value={formData.age} onChange={handleChange} onKeyDown={(e) => { if (e.key === 'E' || e.key === 'e' || e.key === '+' || e.key === '-') { e.preventDefault()};}} className='border p-2 w-75 m-1' /><br />
                     <input type="text" name='course' placeholder='Course' value={formData.course} onChange={handleChange} className='border p-2 w-75 m-1' /><br />
                     <input type="text" name='city' placeholder='City' value={formData.city} onChange={handleChange} className='border p-2 w-75 m-1' /><br />
                     <button type="submit" className='bg-green-400 text-white px-6 py-2 rounded w-75 cursor-pointer hover:bg-green-500 active:bg-green-600'>
