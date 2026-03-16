@@ -1,5 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Crud = () => {
     const [posts, setPosts] = useState([]);
@@ -10,6 +12,7 @@ const Crud = () => {
         city: ""
     });
     const [editId, setEditId] = useState(null);
+    const [error, setError] = useState("")
 
     const handleChange = (e) => {
         setFormData({
@@ -39,9 +42,10 @@ const Crud = () => {
             .then(() => {
                 const filteredPost = posts.filter(post => post.id !== id)
                 setPosts(filteredPost)
+                toast.success("Student deleted successfully")
             })
-            .catch((error) => console.log("Error", error))
-            
+            .catch((error) => console.log("Error", error), toast.error("Failed to delete student."))
+
     }
 
     const handleSubmit = (e) => {
@@ -55,6 +59,7 @@ const Crud = () => {
 
                     setPosts(updatedData);
                     setEditId(null);
+                    toast.success("Student Updated")
 
                     setFormData({
                         name: "",
@@ -63,15 +68,18 @@ const Crud = () => {
                         city: ""
                     })
                 })
-                .catch((error) => console.log("Error", error))
+                .catch((error) => console.log("Error", error),
+                    toast.error("Failed to update student"))
         } else {
             axios.post(`https://crud-4-l16m.onrender.com/api/add/`, formData)
                 .then((response) => {
                     alert('Student added successfully')
                     setPosts([...posts, response.data])
+                    toast.success("Student added successfully!")
                 })
                 .catch((error) => {
-                    console.error("error", error)
+                    console.error("error", error),
+                        toast.error("Failed to add student.");
                 });
             setFormData({
                 name: "",
@@ -88,7 +96,8 @@ const Crud = () => {
                 setPosts(response.data)
             })
             .catch((error) =>
-                console.error("Error", error)
+                console.error("Error", error),
+                toast.error("Failed to fetch students")
             );
     }, [])
 
