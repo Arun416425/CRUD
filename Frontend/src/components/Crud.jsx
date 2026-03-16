@@ -13,6 +13,8 @@ const Crud = () => {
     });
     const [editId, setEditId] = useState(null);
 
+    const BASE_URL = 'https://crud-4-l16m.onrender.com'
+
     const resetForm = () => {
         setFormData({
             name: "",
@@ -27,11 +29,6 @@ const Crud = () => {
 
         if (name === "age") {
             if (!/^\d*$/.test(value)) return;
-        }
-
-        if (value !== "" && parseInt(value) > 120) {
-            toast.warn("Age cannot be 120");
-            return;
         }
     }
 
@@ -56,7 +53,7 @@ const handleDelete = (id) => {
     const confirmed = window.confirm("Are you sure you want to delete?");
     if (!confirmed) return;
 
-    axios.delete(`https://crud-4-l16m.onrender.com/api/delete/${id}/`)
+    axios.delete(`${BASE_URL}/api/delete/${id}/`)
         .then(() => {
             const filteredPost = posts.filter(post => post.id !== id)
             setPosts(filteredPost)
@@ -77,8 +74,13 @@ const handleSubmit = (e) => {
         return;
     }
 
+    if (value !== "" && parseInt(value) > 120) {
+            toast.warn("Age cannot be 120");
+            return;
+        }
+
     if (editId) {
-        axios.put(`https://crud-4-l16m.onrender.com/api/update/${editId}/`, formData)
+        axios.put(`${BASE_URL}/api/update/${editId}/`, formData)
             .then((response) => {
                 const updatedData = posts.map((post) =>
                     post.id === editId ? response.data : post)
@@ -94,7 +96,7 @@ const handleSubmit = (e) => {
                 toast.error("Failed to update student");
             });
     } else {
-        axios.post(`https://crud-4-l16m.onrender.com/api/add/`, formData)
+        axios.post(`${BASE_URL}/api/add/`, formData)
             .then((response) => {
                 setPosts([...posts, response.data]);
                 toast.success("Student added successfully!");
@@ -109,7 +111,7 @@ const handleSubmit = (e) => {
 }
 
 useEffect(() => {
-    axios.get(`https://crud-4-l16m.onrender.com/api/`)
+    axios.get(`${BASE_URL}/api/`)
         .then((response) => {
             setPosts(response.data)
         })
@@ -123,11 +125,11 @@ return (
     <>
         <div className='text-center'>
             <h2 className='text-4xl m-4'>Student List</h2>
-            <form onSubmit={handleSubmit}>
-                <input type="text" name='name' placeholder='Name' value={formData.name} onChange={handleChange} className='border p-2 w-75 m-1' /><br />
-                <input type="number" name='age' placeholder='Age' value={formData.age} onChange={handleChange} inputMode='numeric' onKeyDown={(e) => { if (['E', 'e', '+', '-'].includes(e.key)) { e.preventDefault() }; }} className='border p-2 w-75 m-1' /><br />
-                <input type="text" name='course' placeholder='Course' value={formData.course} onChange={handleChange} className='border p-2 w-75 m-1' /><br />
-                <input type="text" name='city' placeholder='City' value={formData.city} onChange={handleChange} className='border p-2 w-75 m-1' /><br />
+            <form onSubmit={handleSubmit()}>
+                <input type="text" name='name' placeholder='Name' value={formData.name} onChange={handleChange()} className='border p-2 w-75 m-1' /><br />
+                <input type="number" name='age' placeholder='Age' value={formData.age} onChange={handleChange()} inputMode='numeric' onKeyDown={(e) => { if (['E', 'e', '+', '-'].includes(e.key)) { e.preventDefault() }; }} className='border p-2 w-75 m-1' /><br />
+                <input type="text" name='course' placeholder='Course' value={formData.course} onChange={handleChange()} className='border p-2 w-75 m-1' /><br />
+                <input type="text" name='city' placeholder='City' value={formData.city} onChange={handleChange()} className='border p-2 w-75 m-1' /><br />
                 <button type="submit" className='bg-green-400 text-white px-6 py-2 rounded w-75 cursor-pointer hover:bg-green-500 active:bg-green-600'>
                     {editId ? "Update" : "Save"}
                 </button>
