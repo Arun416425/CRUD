@@ -32,7 +32,7 @@ const Crud = () => {
         if (value !== "" && parseInt(value) > 120) {
             toast.warn("Age cannot be 120");
             return;
-        };
+        }
     }
 
     setFormData({
@@ -189,7 +189,6 @@ return (
             pauseOnHover
         />
     </>
-)
-}
+);
 
-export default Crud
+export default Crud;
