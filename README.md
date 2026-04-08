@@ -6,9 +6,9 @@ A robust, decoupled web application featuring a React frontend and a Django REST
 **Frontend**
 <li>React.js: Functional components and Hooks for dynamic UI.</li>
 
-<p>Tailwind CSS: Utility-first styling for a modern, responsive design.</p>
+<li>Tailwind CSS: Utility-first styling for a modern, responsive design.</li>
 
-<p>Axios: Promise-based HTTP client for seamless API communication.</p>
+<li>Axios: Promise-based HTTP client for seamless API communication.</li>
 
 **Backend**
 <p>Django: High-level Python framework for rapid development.</p>
