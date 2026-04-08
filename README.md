@@ -9,7 +9,7 @@ A robust, decoupled web application featuring a React frontend and a Django REST
 <li>Tailwind CSS: Utility-first styling for a modern, responsive design.</li>
 
 <li>Axios: Promise-based HTTP client for seamless API communication.</li>
-
+<br>
 **Backend**
 <p>Django: High-level Python framework for rapid development.</p>
 
