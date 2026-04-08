@@ -2,6 +2,7 @@
 A robust, decoupled web application featuring a React frontend and a Django REST Framework backend. This project demonstrates a complete implementation of RESTful principles, state management, and cross-platform deployment.
 
 <h2>🛠️ Tech Stack</h2>
+
 **Frontend**
 <p>React.js: Functional components and Hooks for dynamic UI.</p>
 
