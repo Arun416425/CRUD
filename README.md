@@ -4,7 +4,7 @@ A robust, decoupled web application featuring a React frontend and a Django REST
 <h2>🛠️ Tech Stack</h2>
 
 **Frontend**
-<p>React.js: Functional components and Hooks for dynamic UI.</p>
+<li>React.js: Functional components and Hooks for dynamic UI.</li>
 
 <p>Tailwind CSS: Utility-first styling for a modern, responsive design.</p>
 
