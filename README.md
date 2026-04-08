@@ -10,17 +10,19 @@ A robust, decoupled web application featuring a React frontend and a Django REST
 
 <li>Axios: Promise-based HTTP client for seamless API communication.</li>
 <br>
+
 **Backend**
-<p>Django: High-level Python framework for rapid development.</p>
+<li>Django: High-level Python framework for rapid development.</li>
 
-<p>Django REST Framework (DRF): Specialized toolkit for building powerful Web APIs.</p>
+<li>Django REST Framework (DRF): Specialized toolkit for building powerful Web APIs.</li>
 
-<p>SQLite: Lightweight relational database (ideal for development and small-scale deployment).</p>
+<li>SQLite: Lightweight relational database (ideal for development and small-scale deployment).</li>
+<br>
 
 **Deployment**
-<p>Vercel: Optimized hosting for the React build.</p>
+<li>Vercel: Optimized hosting for the React build.</li>
 
-<p>Render: Managed hosting for the Django application and static files.</p>
+<li>Render: Managed hosting for the Django application and static files.</li>
 
 <h2>✨ Key Features</h2>
 <p>Full CRUD Operations: Create, Read, Update, and Delete records with real-time UI updates.</p>
