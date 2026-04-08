@@ -2,33 +2,33 @@
 A robust, decoupled web application featuring a React frontend and a Django REST Framework backend. This project demonstrates a complete implementation of RESTful principles, state management, and cross-platform deployment.
 
 <h2>🛠️ Tech Stack</h2>
-Frontend
-React.js: Functional components and Hooks for dynamic UI.
+**Frontend**
+<p>React.js: Functional components and Hooks for dynamic UI.</p>
 
-Tailwind CSS: Utility-first styling for a modern, responsive design.
+<p>Tailwind CSS: Utility-first styling for a modern, responsive design.</p>
 
-Axios: Promise-based HTTP client for seamless API communication.
+<p>Axios: Promise-based HTTP client for seamless API communication.</p>
 
-Backend
-Django: High-level Python framework for rapid development.
+**Backend**
+<p>Django: High-level Python framework for rapid development.</p>
 
-Django REST Framework (DRF): Specialized toolkit for building powerful Web APIs.
+<p>Django REST Framework (DRF): Specialized toolkit for building powerful Web APIs.</p>
 
-SQLite: Lightweight relational database (ideal for development and small-scale deployment).
+<p>SQLite: Lightweight relational database (ideal for development and small-scale deployment).</p>
 
-Deployment
-Vercel: Optimized hosting for the React build.
+**Deployment**
+<p>Vercel: Optimized hosting for the React build.</p>
 
-Render: Managed hosting for the Django application and static files.
+<p>Render: Managed hosting for the Django application and static files.</p>
 
 <h2>✨ Key Features</h2>
-Full CRUD Operations: Create, Read, Update, and Delete records with real-time UI updates.
+<p>Full CRUD Operations: Create, Read, Update, and Delete records with real-time UI updates.</p>
 
-Decoupled Architecture: Frontend and Backend are hosted independently, communicating via JSON over HTTPS.
+<p>Decoupled Architecture: Frontend and Backend are hosted independently, communicating via JSON over HTTPS.</p>
 
-Responsive UI: Fully optimized for mobile, tablet, and desktop views using Tailwind.
+<p>Responsive UI: Fully optimized for mobile, tablet, and desktop views using Tailwind.</p>
 
-CORS Handling: Configured django-cors-headers to allow secure requests from the Vercel domain.
+<p>CORS Handling: Configured django-cors-headers to allow secure requests from the Vercel domain.</p>
 
-🏗️ System Architecture
-The application uses a Client-Server architecture. The React frontend sends requests to the Django API, which processes business logic and interacts with the SQLite database.
+<h2>🏗️ System Architecture</h2>
+<p>The application uses a Client-Server architecture. The React frontend sends requests to the Django API, which processes business logic and interacts with the SQLite database.</p>
